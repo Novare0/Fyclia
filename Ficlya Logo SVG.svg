@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:affinity="https://www.affinity.studio/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <rect id="Mesa-de-trabajo1" affinity:id="Mesa de trabajo1" x="0" y="0" width="512" height="512" style="fill:url(#_Linear1);"/>
+    <g id="Mesa-de-trabajo11" affinity:id="Mesa de trabajo1">
+        <g transform="matrix(0.949363,-0.972611,0.949363,0.972611,-308.803383,262.064554)">
+            <path d="M297.153,144.393L332.656,213.31L409.171,225.779L354.598,280.841L366.384,357.464L297.153,322.578L227.922,357.464L239.708,280.841L185.135,225.779L261.65,213.31L297.153,144.393Z"/>
+        </g>
+        <g transform="matrix(0.554021,0.327697,-0.319864,0.567587,285.154113,105.349776)">
+            <path d="M297.153,144.393L332.656,213.31L409.171,225.779L354.598,280.841L366.384,357.464L297.153,322.578L227.922,357.464L239.708,280.841L185.135,225.779L261.65,213.31L297.153,144.393Z"/>
+        </g>
+        <g transform="matrix(0.903163,-0.903163,0.903163,0.903163,-298.747081,273.934652)">
+            <path d="M297.153,144.393L332.656,213.31L409.171,225.779L354.598,280.841L366.384,357.464L297.153,322.578L227.922,357.464L239.708,280.841L185.135,225.779L261.65,213.31L297.153,144.393Z" style="fill:rgb(226,226,226);"/>
+        </g>
+        <g transform="matrix(0.52706,0.304298,-0.304298,0.52706,266.305831,128.409836)">
+            <path d="M297.153,144.393L332.656,213.31L409.171,225.779L354.598,280.841L366.384,357.464L297.153,322.578L227.922,357.464L239.708,280.841L185.135,225.779L261.65,213.31L297.153,144.393Z" style="fill:rgb(226,226,226);"/>
+        </g>
+    </g>
+    <defs>
+        <linearGradient id="_Linear1" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(0,512,-512,0,263.946785,0)"><stop offset="0" style="stop-color:rgb(99,102,241);stop-opacity:1"/><stop offset="0.5" style="stop-color:rgb(124,58,237);stop-opacity:1"/><stop offset="1" style="stop-color:rgb(168,85,247);stop-opacity:1"/></linearGradient>
+    </defs>
+</svg>

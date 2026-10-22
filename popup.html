@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ficlya IA</title>
+  <link rel="stylesheet" href="popup.css">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="brand-lockup">
+        <img class="brand-logo" src="Ficlya Logo SVG.svg" alt="Logo de Ficlya">
+        <div>
+          <h1>Ficlya</h1>
+          <span class="brand-caption">Lectura inteligente</span>
+        </div>
+      </div>
+      <div class="status-badge" id="statusBadge">Listo</div>
+    </header>
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="quiz">IA de lectura</button>
+      <button class="tab-btn" data-tab="reader">Lector</button>
+    </div>
+
+    <!-- TAB: READER -->
+    <div id="reader-tab" class="tab-content">
+      <div class="control-group">
+        <label class="switch-label">
+          <span>Estado</span>
+          <label class="switch">
+            <input type="checkbox" id="enabledToggle" checked>
+            <span class="slider round"></span>
+          </label>
+        </label>
+      </div>
+      <div class="settings">
+        <div class="input-group">
+          <label>Mínimo Intervalo (Min:Seg)</label>
+          <div class="time-inputs">
+            <input type="number" id="minMinutes" value="1" min="0" placeholder="Min">
+            <span>:</span>
+            <input type="number" id="minSeconds" value="20" min="0" max="59" placeholder="Seg">
+          </div>
+        </div>
+        <div class="input-group">
+          <label>Máximo Intervalo (Min:Seg)</label>
+          <div class="time-inputs">
+            <input type="number" id="maxMinutes" value="2" min="0" placeholder="Min">
+            <span>:</span>
+            <input type="number" id="maxSeconds" value="20" min="0" max="59" placeholder="Seg">
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="targetDomain">Dominio Objetivo</label>
+          <input type="text" id="targetDomain" placeholder="lat.fictionexpress.com" value="lat.fictionexpress.com">
+        </div>
+      </div>
+      <button id="saveBtn" class="primary-btn">Guardar Configuración</button>
+    </div>
+
+    <!-- TAB: IA DE LECTURA -->
+    <div id="quiz-tab" class="tab-content active">
+      <div class="quiz-form">
+        <div class="ai-intro">
+          <span class="ai-kicker">Ficlya</span>
+          <h2>Tu IA de lectura y respuesta</h2>
+          <p>Comprende el capítulo, resuelve la pregunta actual o completa el quiz.</p>
+        </div>
+        <div class="form-section">
+          <h3>Información del Quiz</h3>
+
+          <div class="input-group">
+            <label for="quizLevel">Nivel del libro (1-3)</label>
+            <select id="quizLevel">
+              <option value="">Selecciona nivel...</option>
+              <option value="1">Nivel 1 - Principiante</option>
+              <option value="2">Nivel 2 - Intermedio</option>
+              <option value="3">Nivel 3 - Avanzado</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <label for="quizBookName">Nombre del libro</label>
+            <input type="text" id="quizBookName" placeholder="Ej: Tsunami en las Galápagos" readonly>
+          </div>
+
+          <div class="input-group">
+            <label for="quizChapterName">Número del capítulo</label>
+            <input type="text" id="quizChapterName" placeholder="Capítulo #" readonly>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <h3>Contenido del Capítulo</h3>
+          <div class="input-group">
+            <label for="chapterFile">Contenido del capítulo</label>
+            <input type="file" id="chapterFile" accept=".txt" style="padding: 8px;">
+          </div>
+          <p class="help-text">Se carga automáticamente desde el capítulo cuando está disponible.</p>
+          <textarea id="chapterContent" placeholder="Pega aquí el contenido del capítulo..." style="min-height: 100px; display: none;"></textarea>
+        </div>
+
+        <div class="form-section ai-actions">
+          <h3>Resolver con IA</h3>
+
+          <div class="control-group">
+            <button id="solveSingleBtn" class="secondary-btn">Resolver pregunta</button>
+            <button id="solveAutoBtn" class="primary-btn">Resolver QUIZ completo</button>
+            <button id="finishQuizBtn" class="text-btn">Terminar y subir resultado</button>
+            <button id="clearQuizBtn" class="text-btn">Limpiar datos</button>
+          </div>
+
+          <p id="questionCount" class="help-text">Estado: listo</p>
+          <div id="answersPreview" class="answers-preview"></div>
+        </div>
+
+        <div id="processingStatus" style="margin-top: 10px; text-align: center;"></div>
+      </div>
+    </div>
+
+    <footer>
+      <p>Ficlya - By: Novare</p>
+    </footer>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="popup.js"></script>
+</body>
+
+</html>

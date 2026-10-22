@@ -1,0 +1,9 @@
+Key.txt
+__pycache__/
+*.pyc
+key.txt
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db
