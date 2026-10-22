@@ -1,42 +1,117 @@
-# Ficlya - Extensión de Navegador
+# Ficlya — Extensión de navegador
 
-Automatiza la navegación en FictionExpress y otros sitios de lectura, simulando actividad humana para evitar detecciones de inactividad.
+**Ficlya** es una extensión de navegador diseñada para automatizar la navegación en FictionExpress y otros sitios de lectura. Incluye un sistema de IA para ayudar a responder quizzes mediante un servidor local que mantiene la clave del proveedor fuera del código del navegador.
 
-## 📦 Instalación Rápida
+## ✨ Características
 
-1. Descarga el archivo **`AutoFic_v1.0.zip`**.
-2. Descomprímelo en una carpeta de tu PC.
-3. Abre Chrome y ve a `chrome://extensions/`.
-4. Activa el **Modo de desarrollador** (esquina superior derecha).
-5. Haz clic en **Cargar descomprimida o puede decir desempaquetado** y selecciona la carpeta descomprimida.
+- Automatización de la navegación en sitios de lectura compatibles.
+- Asistente de IA para responder preguntas de quizzes.
+- Servidor local para gestionar las solicitudes al proveedor de IA.
+- Configuración del modelo utilizado por el asistente.
+- Modo de práctica con una tasa configurable de respuestas incorrectas.
 
-## IA para responder quizzes
+## 📦 Instalación
 
-La extensión usa un proxy local para que la clave de IA no quede expuesta en el navegador.
+1. Descarga el proyecto desde GitHub mediante **Code → Download ZIP**, o clónalo con Git.
+2. Si descargaste un ZIP, descomprímelo en una carpeta.
+3. Abre Chrome y visita `chrome://extensions/`.
+4. Activa el **Modo de desarrollador**.
+5. Haz clic en **Cargar descomprimida** o **Cargar desempaquetada**, según la versión del navegador.
+6. Selecciona la carpeta que contiene `manifest.json`.
 
-1. Instala Python 3.11 o posterior.
-2. Deja la clave del proveedor en `Key.txt`, en una sola línea. No la publiques ni la subas a Git.
-3. Abre PowerShell en esta carpeta y ejecuta:
+Una vez instalada, puedes abrir la extensión desde el navegador.
 
-	```powershell
-	py ai_server.py
-	```
+## 🤖 Configuración del asistente de IA
 
-4. Recarga la extensión desde `chrome://extensions/` y abre el quiz.
+El asistente utiliza un servidor local para comunicarse con el proveedor de IA sin exponer la clave API directamente en el navegador.
 
-El servidor escucha en `http://127.0.0.1:8765`. El texto del capítulo se envía al proveedor de IA para poder responder la pregunta.
+### Requisitos
 
-El modelo predeterminado es `openai/gpt-oss-20b`. Puedes cambiarlo antes de iniciar el servidor con `$env:QUIZ_AI_MODEL` si tu cuenta tiene acceso a otro modelo.
+- Python 3.11 o posterior.
+- Una clave API válida del proveedor configurado.
+- Acceso al modelo seleccionado en la configuración.
 
-Por defecto no introduce errores. Para el modo de práctica puedes iniciar el servidor con un porcentaje controlado, por ejemplo:
+### 1. Configurar la clave API
+
+Crea un archivo llamado `Key.txt` en la carpeta del proyecto y coloca la clave API en una sola línea.
+
+**Importante:** no compartas este archivo ni lo subas a GitHub. Está excluido mediante `.gitignore`.
+
+### 2. Iniciar el servidor
+
+Abre PowerShell en la carpeta del proyecto y ejecuta:
+
+```powershell
+py ai_server.py
+```
+
+El servidor local estará disponible en:
+
+`http://127.0.0.1:8765`
+
+Mantén la terminal abierta mientras utilizas las funciones de IA.
+
+### 3. Utilizar el asistente
+
+1. Abre `chrome://extensions/`.
+2. Recarga Ficlya.
+3. Abre el sitio de lectura y accede al quiz.
+4. Utiliza la función de IA de la extensión.
+
+El texto del capítulo se envía al proveedor de IA para generar respuestas relacionadas con su contenido. Ten en cuenta que esto implica transmitir ese texto a un servicio externo.
+
+## ⚙️ Configuración del modelo
+
+El modelo predeterminado es:
+
+`openai/gpt-oss-20b`
+
+Puedes cambiarlo mediante la variable de entorno `QUIZ_AI_MODEL` antes de iniciar el servidor. Tu cuenta debe tener acceso al modelo elegido.
+
+Ejemplo en PowerShell:
+
+```powershell
+$env:QUIZ_AI_MODEL = "openai/gpt-oss-20b"
+py ai_server.py
+```
+
+## 🧪 Modo de práctica
+
+Por defecto, el servidor no introduce errores intencionales en las respuestas.
+
+Para probar el comportamiento de la extensión con respuestas incorrectas ocasionales, puedes configurar `QUIZ_ERROR_RATE`.
+
+Por ejemplo, para establecer una tasa del 10 %:
 
 ```powershell
 $env:QUIZ_ERROR_RATE = "0.10"
 py ai_server.py
 ```
 
-Ese ejemplo hace que aproximadamente el 10% de las respuestas sean incorrectas de forma intencionada.
+Esta configuración hace que aproximadamente el 10 % de las respuestas sean incorrectas de forma intencional. Utiliza esta opción únicamente para pruebas.
 
+## 🛠️ Solución de problemas
 
-# si quiere colaborar enviar mensaje a este
-### correo: novarestudio@gmail.com
+**La extensión no aparece en Chrome**
+- Comprueba que seleccionaste la carpeta que contiene `manifest.json`.
+- Revisa si Chrome muestra algún error en `chrome://extensions/`.
+
+**El asistente de IA no responde**
+- Comprueba que el servidor esté ejecutándose.
+- Verifica que `Key.txt` exista y contenga una clave válida.
+- Confirma que tu cuenta tenga acceso al modelo configurado.
+- Revisa los mensajes de error en la terminal de PowerShell.
+
+**Los cambios no aparecen**
+- Recarga Ficlya desde `chrome://extensions/`.
+- Si modificaste el servidor Python, detén el proceso anterior y vuelve a iniciarlo.
+
+## 🤝 Colaboraciones y contacto
+
+¿Quieres colaborar, reportar un problema o proponer una mejora? Puedes ponerte en contacto por correo electrónico.
+
+**Correo:** [novareestudio@gmail.com](mailto:novareestudio@gmail.com)
+
+---
+
+Desarrollado como un proyecto independiente bajo el nombre **Ficlya**.
